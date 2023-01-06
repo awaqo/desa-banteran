@@ -10,6 +10,15 @@
 <!-- AlpineJS -->
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-{{-- CKEditor --}}
-<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
-{{-- <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script> --}}
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.deleteBtn', function (e) {
+            e.preventDefault();
+
+            var d_id = $(this).val();
+            $('#delete_id').val(d_id);
+
+            $('#cekBantuan').modal('show');
+        });
+    })
+</script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataBantuan;
 
 class MainController extends Controller
 {
@@ -19,14 +20,14 @@ class MainController extends Controller
     }
 
     public function layanan() {
-        return view('layouts.layanan', [
-            "title" => 'Layanan'
-        ]);
+        $title = 'Layanan';
+        $dataBantuan = DataBantuan::all();
+        return view('layouts.layanan', compact('title', 'dataBantuan'));
     }
 
-    public function visi_misi() {
-        return view('layouts.visi_misi', [
-            "title" => 'Profil - Visi Misi',
+    public function profil() {
+        return view('layouts.profil', [
+            "title" => 'Profil',
         ]);
     }
 

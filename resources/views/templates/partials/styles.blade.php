@@ -1,4 +1,5 @@
 <!-- Styles -->
+@vite('resources/css/app.css')
 <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
 
 <!-- Fonts -->
