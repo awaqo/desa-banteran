@@ -14,7 +14,7 @@
         <form action="updating/{{ $d->slug }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="flex flex-row gap-4">
-                <div class="max-w-2xl flex flex-col gap-3">
+                <div class="w-full flex flex-col gap-3">
                     <div class="space-y-2 mb-3">
                         <label for="author" class="block font-medium">Uploader</label>
                         @foreach ($adminData as $aD)
@@ -36,7 +36,7 @@
     
                         <div class="space-y-2 mb-3">
                             <label for="konten" class="block font-medium">Konten berita</label>
-                            <textarea name="konten" id="konten" 
+                            <textarea name="konten" id="konten" rows="10"
                             class="ckeditor py-2 px-3 block w-full border-gray-300 bg-gray-50" 
                             placeholder="isi konten berita . . .">{!! $d->konten !!}</textarea>
                         </div>
@@ -46,7 +46,7 @@
                 <div class="w-full flex flex-col gap-3">
                     <div class="space-y-2 mb-3">
                         <label for="gambar" class="block font-medium">Gambar sebelumnya</label>
-                        <img class="w-auto h-auto rounded-md" src="{{ asset('storage/berita/'.$d->gambar) }}" alt="">
+                        <img class="w-auto h-auto rounded-md" src="{{ asset('berita/'.$d->gambar) }}" alt="">
                     </div>
                     <div class="space-y-2 mb-3">
                         <label for="gambar" class="block font-medium">Gambar baru <span class="text-gray-400 font-normal">(jika perlu)</span></label>

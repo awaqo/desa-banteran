@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataBantuan;
+use App\Models\Berita;
 
 class MainController extends Controller
 {
@@ -14,9 +15,15 @@ class MainController extends Controller
     }
 
     public function informasi() {
-        return view('layouts.informasi', [
-            "title" => 'Informasi'
-        ]);
+        $title = 'Informasi';
+        $dataBerita = Berita::latest()->paginate(5);
+        return view('layouts.informasi.informasi', compact('title', 'dataBerita'));
+    }
+
+    public function beritaBySlug($slug) {
+        $title = 'Informasi';
+        $dataBerita = Berita::where('slug', $slug)->get();
+        return view('layouts.informasi.berita_by_slug', compact('title', 'dataBerita'));
     }
 
     public function layanan() {

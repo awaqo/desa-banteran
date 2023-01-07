@@ -96,10 +96,10 @@
                                 {{ $d->author }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ $d->created_at }}
+                                {{ $d->created_at->format('d M Y H:i:s') }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ $d->updated_at }}
+                                {{ $d->updated_at->format('d M Y H:i:s') }}
                             </td>
                             <td class="w-32 text-center py-4 px-6">
                                 <div class="flex items-center space-x-2">

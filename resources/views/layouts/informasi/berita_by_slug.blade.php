@@ -1,23 +1,21 @@
-@extends('admin.master')
+@extends('templates.master')
 
-@section('content-admin')
-<div class="m-10 w-full max-w-3xl">
-    <div class="my-4 space-x-2">
-        <a href="{{ route('berita') }}" class="py-3 px-5 text-white rounded-xl bg-blue-500 hover:bg-blue-600">
+@section('content')
+    
+<div class="py-3 px-3 sm:py-10 sm:px-16 mx-auto w-full max-w-5xl bg-white">
+    <div class="my-4">
+        <a href="{{ route('informasi') }}" class="py-3 px-5 text-white rounded-xl bg-blue-500 hover:bg-blue-600">
             <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
-        </a>
-        @foreach ($dataBerita as $d)
-        <a href="{{ url('admin/berita/edit/'.$d->slug) }}" class="py-3 px-5 text-white rounded-xl bg-yellow-500 hover:bg-yellow-600">
-            <i class="fa-solid fa-edit mr-1"></i> Edit
         </a>
     </div>
     {{-- list postingan berita --}}
-    <div class="mt-8 space-y-3 bg-white shadow-md rounded-lg">
+    <div class="mt-8 space-y-3">
+        @foreach ($dataBerita as $d)
             <div class="p-2 sm:p-4 sm:border sm:border-gray-300 rounded-lg">
                 <div class="header-berita space-y-1">
                     <h2 class="text-xl font-bold">{{ $d->judul }}</h2>
                     <p class="author space-x-2 text-gray-400">
-                        <span><i class="fa-solid fa-calendar"></i> {{ $d->created_at->format('d M Y H:i:s') }}</span>
+                        <span><i class="fa-solid fa-calendar"></i> {{ $d->created_at->format('d M Y') }}</span>
                         <span><i class="fa-solid fa-user"></i> {{ $d->author }}</span>
                     </p>
                 </div>
@@ -34,4 +32,5 @@
         @endforeach
     </div>
 </div>
+
 @endsection

@@ -3,11 +3,11 @@
 @section('content')
 <div class="flex flex-col justify-center items-center">
     {{-- modal --}}
-    <div id="cekBantuan" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+    <div id="cekBantuan" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-4 left-4 right-4 z-50 hidden overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
         <div class="relative w-full h-full max-w-lg md:h-auto">
             <div class="relative bg-white rounded-lg shadow">
                 <div class="flex items-start justify-between p-4 border-b rounded-t">
-                    <h3 class="pt-4 pl-4 text-xl font-semibold text-indigo-900">
+                    <h3 class="pt-0 pl-0 sm:pt-4 sm:pl-4 text-xl font-semibold text-indigo-900">
                         Cek Penerima Bantuan
                     </h3>
                     <button type="button" class="absolute top-3 right-2.5 text-indigo-400 bg-transparent hover:bg-indigo-200 hover:text-indigo-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="cekBantuan">
@@ -16,7 +16,7 @@
                     </button>
                 </div>
 
-                <div class="px-10 pb-5">
+                <div class="px-4 sm:px-10 pb-5">
                     <form class="w-full mt-5" action="#" method="POST" enctype="multipart/form-data">
                         {{-- data diri --}}
                         @csrf
@@ -37,31 +37,32 @@
     </div>
     
     <div class="mt-10 mb-5 w-full sm:max-w-5xl flex justify-end">
-        <button data-modal-target="cekBantuan" data-modal-toggle="cekBantuan" type="button" class="py-3 px-5 rounded-md w-full max-w-xs text-white bg-emerald-500 hover:bg-emerald-600">
+        <button data-modal-target="cekBantuan" data-modal-toggle="cekBantuan" type="button" class="py-3 px-5 mx-auto md:mx-4 lg:mx-0 rounded-md w-full max-w-xs text-white bg-emerald-500 hover:bg-emerald-600">
             <i class="fa-solid fa-search mr-1"></i> Cek Bantuan
         </button>
     </div>
     {{-- data penerima bantuan --}}
-    <div class="w-full sm:max-w-5xl my-0 sm:mb-10 bg-white rounded-xl shadow-lg p-5 sm:p-8 flex flex-col items-center">
+    <div class="w-full sm:max-w-5xl my-0 sm:mb-10 bg-white rounded-xl shadow-lg p-5 sm:p-8">
         <h1 class="text-2xl sm:text-3xl text-center py-4 font-bold border-b border-green-600">Data Penerima Bantuan</h1>
         
-        <div class="my-8 overflow-x-auto relative shadow-md sm:rounded-lg">
+        <p class="block sm:hidden mt-5 font-normal text-sm italic"><span class="text-red-500">** </span>Geser kanan untuk melihat isi lengkap tabel</p>
+        <div class="mb-8 mt-3 sm:my-8 overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-white uppercase bg-indigo-400">
                     <tr class="divide-x divide-y">
-                        <th scope="col" class="w-16 py-3 px-6">
+                        <th scope="col" class="py-3 px-6">
                             NO
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Nama
                         </th>
-                        <th scope="col" class="w-44 py-3 px-6">
+                        <th scope="col" class="py-3 px-6">
                             NIK
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Alamat
                         </th>
-                        <th scope="col" class="w-40 py-3 px-6">
+                        <th scope="col" class="py-3 px-6">
                             Nominal
                         </th>
                     </tr>

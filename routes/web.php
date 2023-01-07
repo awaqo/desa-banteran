@@ -26,6 +26,7 @@ use App\Http\Controllers\AdminController;
 Route::controller(MainController::class)->group(function() {
     Route::get('/', 'index')->name('beranda');
     Route::get('informasi', 'informasi')->name('informasi');
+    Route::get('informasi/berita/{slug}', 'beritaBySlug');
     Route::get('layanan', 'layanan')->name('layanan');
     Route::get('profil', 'profil')->name('profil');
     Route::get('profil/gambaran-umum', 'gambaran_umum')->name('gambaran-umum');

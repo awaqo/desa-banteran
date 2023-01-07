@@ -34,17 +34,18 @@ class BeritaController extends Controller
         $data = Berita::where('slug', $slug)->get()->first();
 
         if ($request->file('gambar')) {
-            unlink(storage_path('app/public/berita/' . $data->gambar ));
+            unlink(public_path('berita/' . $data->gambar ));
 
-            $updatedGambar = $request->file('gambar');
-            $updatedGambar->storeAs('public/berita', $updatedGambar->hashName());
+            $updatedGambar = $request->file('gambar')->getClientOriginalName();
+            $destinationPath = 'berita';
+            $request->gambar->move(public_path($destinationPath), $updatedGambar);
             
             Berita::where('slug', $slug)->update([
                 'judul' => $request->judul,
                 'slug' => $updatedSlug,
                 'konten' => $request->konten,
                 'author' => $request->author,
-                'gambar' => $updatedGambar->hashName(),
+                'gambar' => $updatedGambar,
             ]);
         } else {
             Berita::where('slug', $slug)->update([
@@ -56,7 +57,7 @@ class BeritaController extends Controller
         }
 
 
-        return redirect()->route('indexBerita')->with('success', 'Berhasil mengupdate berita');
+        return redirect()->route('berita')->with('success', 'Berhasil mengupdate berita');
     }
 
     public function postView() {
@@ -68,18 +69,19 @@ class BeritaController extends Controller
         // dd($request->all());
         
         $slug = Str::slug($request->judul, '-');
-        $gambar = $request->file('gambar');
-        $gambar->storeAs('public/berita', $gambar->hashName());
+        $gambar = $request->file('gambar')->getClientOriginalName();
+        $destinationPath = 'berita';
+        $request->gambar->move(public_path($destinationPath), $gambar);
 
         Berita::create([
             'judul' => $request->judul,
             'slug' => $slug,
             'author' => $request->author,
             'konten' => $request->konten,
-            'gambar' => $gambar->hashName(),
+            'gambar' => $gambar,
         ]);
 
-        return redirect()->route('indexBerita')->with('success', 'Berhasil memposting berita');
+        return redirect()->route('berita')->with('success', 'Berhasil memposting berita');
     }
 
     public function ckUpImg(Request $request) {
@@ -100,9 +102,9 @@ class BeritaController extends Controller
         $berita = Berita::find($request->deleted_id);
 
         $data = Berita::where('id', $request->deleted_id)->get()->first();
-        unlink(storage_path('app\public\berita\\'.$data->gambar ));
+        unlink(public_path('berita\\'.$data->gambar ));
         $berita->delete();
 
-        return redirect()->route('indexBerita')->with('success', 'Berhasil menghapus berita');
+        return redirect()->route('berita')->with('success', 'Berhasil menghapus berita');
     }
 }

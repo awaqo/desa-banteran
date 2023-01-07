@@ -36,7 +36,7 @@
 
                     <div class="space-y-2 mb-3">
                         <label for="konten" class="block font-medium">Konten berita</label>
-                        <textarea name="konten" id="konten" 
+                        <textarea name="konten" id="konten" rows="10" 
                         class="ckeditor py-2 px-3 block w-full border-gray-300 bg-gray-50" 
                         placeholder="isi konten berita . . ."></textarea>
                     </div>
