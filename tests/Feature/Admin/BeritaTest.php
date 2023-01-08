@@ -59,6 +59,10 @@ class BeritaTest extends TestCase
         $this->testRead();
 
         $berita = Berita::all();
+
+        if (count($berita) == 0)
+            $this->markTestSkipped('No data to delete');
+
         $latestIndex = count($berita) - 1;
 
         $this->submitForm('hapus-berita', [

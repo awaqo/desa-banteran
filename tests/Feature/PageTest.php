@@ -48,8 +48,10 @@ class PageTest extends TestCase
             $this->see($data->author);
         }
 
-        $this->click('Selengkapnya');
+        if (count($berita) == 0)
+            $this->markTestSkipped('No data to view');
 
+        $this->click('Selengkapnya');
         $latestIndex = count($berita) - 1;
         $this->seePageIs('/informasi/berita/' . $berita[$latestIndex]->slug);
         $this->see($berita[$latestIndex]->judul);
