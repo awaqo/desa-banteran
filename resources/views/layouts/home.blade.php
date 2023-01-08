@@ -10,7 +10,8 @@
             <div class="max-w-md text-xl mx-3">
                 <p>Kini masyarakat dapat dengan mudah mengecek data penerima bantuan dimanapun dan kapanpun</p>
             </div>
-            <a href="{{ route('layanan') }}" class="max-w-fit px-8 py-5 font-bold uppercase bg-green-600 hover:bg-green-700 transition duration-300 ease-in-out rounded-full">
+            <a href="{{ route('layanan') }}"
+                class="max-w-fit px-8 py-5 font-bold uppercase bg-green-600 hover:bg-green-700 transition duration-300 ease-in-out rounded-full">
                 Cek Penerima Bantuan
             </a>
         </div>
@@ -19,40 +20,50 @@
     <!-- Selamat Datang -->
     <div class="flex flex-col gap-y-4 text-center items-center mt-16">
         <h1 class="text-3xl mx-6 font-bold">Selamat Datang di Desa Banteran</h1>
-        <p class="text-lg mx-6 max-w-xl text-gray-400">Pemerintah Desa Banteran berkomitmen penuh melayani masyarakat. Sebagai Desa mandiri, Desa Banteran terus bertumbuh bersama dengan masyarakat Desa.</p>
+        <p class="text-lg mx-6 max-w-xl text-gray-400">Pemerintah Desa Banteran berkomitmen penuh melayani masyarakat.
+            Sebagai Desa mandiri, Desa Banteran terus bertumbuh bersama dengan masyarakat Desa.</p>
     </div>
 
     <!-- Menu Website -->
     <div class="md:flex md:items-center md:justify-evenly mt-24 mb-24 mx-8">
-        <a href="{{ route('profil') }}" class="group max-w-full lg:max-w-xs p-6 rounded-xl sm:bg-white sm:hover:bg-[#f1f5ff] transition duration-300 ease-in-out">
+        <a href="{{ route('profil') }}"
+            class="group max-w-full lg:max-w-xs p-6 rounded-xl sm:bg-white sm:hover:bg-[#f1f5ff] transition duration-300 ease-in-out">
             <div class="flex flex-row lg:items-center sm:justify-center items-center gap-x-8 mb-4">
-                <img class="h-14 group-hover:rotate-45 transition duration-300 ease-in-out" src="{{ asset('images/circle-progress.png') }}" alt="">
+                <img class="h-14 group-hover:rotate-45 transition duration-300 ease-in-out"
+                    src="{{ asset('images/circle-progress.png') }}" alt="">
                 <h5 class="text-xl font-medium text-green-900">Profil</h5>
             </div>
-            <p class="font-normal text-green-700 text-center">Desa kami adalah Desa yang menjunjung tinggi kearifan lokal dalam bermasyarakat dan bernegara</p>
+            <p class="font-normal text-green-700 text-center">Desa kami adalah Desa yang menjunjung tinggi kearifan lokal
+                dalam bermasyarakat dan bernegara</p>
         </a>
 
         <div class="hidden md:block w-0.5 h-56 bg-green-600"></div>
 
-        <a href="{{ route('layanan') }}" class="group max-w-full lg:max-w-xs p-6 rounded-xl sm:bg-white sm:hover:bg-[#f1f5ff] transition duration-300 ease-in-out">
+        <a href="{{ route('layanan') }}"
+            class="group max-w-full lg:max-w-xs p-6 rounded-xl sm:bg-white sm:hover:bg-[#f1f5ff] transition duration-300 ease-in-out">
             <div class="flex flex-row lg:items-center sm:justify-center items-center gap-x-8 mb-4">
-                <img class="h-14 group-hover:rotate-45 transition duration-300 ease-in-out" src="{{ asset('images/circle-progress.png') }}" alt="">
+                <img class="h-14 group-hover:rotate-45 transition duration-300 ease-in-out"
+                    src="{{ asset('images/circle-progress.png') }}" alt="">
                 <h5 class="text-xl font-medium text-green-900">Layanan</h5>
             </div>
-            <p class="font-normal text-green-700 text-center">Pemerintah Desa selalu berusaha memberikan layanan publik secara prima kepada masyarakat.</p>
+            <p class="font-normal text-green-700 text-center">Pemerintah Desa selalu berusaha memberikan layanan publik
+                secara prima kepada masyarakat.</p>
         </a>
 
         <div class="hidden md:block w-0.5 h-56 bg-green-600"></div>
 
-        <a href="#" class="group max-w-full lg:max-w-xs p-6 rounded-xl sm:bg-white sm:hover:bg-[#f1f5ff] transition duration-300 ease-in-out">
+        <a href="#"
+            class="group max-w-full lg:max-w-xs p-6 rounded-xl sm:bg-white sm:hover:bg-[#f1f5ff] transition duration-300 ease-in-out">
             <div class="flex flex-row lg:items-center sm:justify-center items-center gap-x-8 mb-4">
-                <img class="h-14 group-hover:rotate-45 transition duration-300 ease-in-out" src="{{ asset('images/circle-progress.png') }}" alt="">
+                <img class="h-14 group-hover:rotate-45 transition duration-300 ease-in-out"
+                    src="{{ asset('images/circle-progress.png') }}" alt="">
                 <h5 class="text-xl font-medium text-green-900">Informasi</h5>
             </div>
-            <p class="font-normal text-green-700 text-center">Pemerintah Desa  menyebarkan informasi  secara merata kepada masyarakat.</p>
+            <p class="font-normal text-green-700 text-center">Pemerintah Desa menyebarkan informasi secara merata kepada
+                masyarakat.</p>
         </a>
     </div>
-    
+
     <!-- Kabar -->
     {{-- <div class="max-w-full mx-4 sm:mx-16 mt-24 mb-24">
         <h1 class="font-bold text-3xl text-center">Kabar Desa</h1>
@@ -78,5 +89,4 @@
             </div>
         </div>
     </div> --}}
-
 @endsection

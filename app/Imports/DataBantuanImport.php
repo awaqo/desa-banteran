@@ -8,14 +8,14 @@ use Maatwebsite\Excel\Concerns\ToModel;
 class DataBantuanImport implements ToModel
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
         return new DataBantuan([
-            'id' => $row[0],
+            'id' => null,
             'nama' => $row[1],
             'nik' => $row[2],
             'alamat' => $row[3],
