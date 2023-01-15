@@ -19,17 +19,21 @@ class DataBantuanController extends Controller
 
     public function import_excel(Request $request)
     {
-        $this->validate($request, [
-            'file' => 'required|mimes:csv,xls,xlsx'
-        ]);
+        try {
+            $this->validate($request, [
+                'file' => 'required|mimes:csv,xls,xlsx'
+            ]);
 
-        $file = $request->file('file');
-        $nama_file = rand() . $file->getClientOriginalName();
+            $file = $request->file('file');
+            $nama_file = time() . '_' . $file->getClientOriginalName();
+            $file->move('public/data_bantuan', $nama_file);
 
-        $file->move('data_bantuan', $nama_file);
+            Excel::import(new DataBantuanImport, public_path('data_bantuan/' . $nama_file));
 
-        Excel::import(new DataBantuanImport, public_path('/data_bantuan/' . $nama_file));
-
-        return redirect('admin/bantuan')->with('success', 'Data penerima bantuan berhasil diimport');
+            return redirect('admin/bantuan')->with('success', 'Data penerima bantuan berhasil diimport');
+        } catch (\Illuminate\Database\QueryException $exception) {
+            $errorInfo = $exception->errorInfo;
+            dd($errorInfo);
+        }
     }
 }

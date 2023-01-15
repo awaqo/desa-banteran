@@ -45,13 +45,20 @@ class BeritaTest extends TestCase
         $this->click('posting-berita');
         $this->seePageIs('/admin/berita/post-berita');
 
-        $this->markTestIncomplete('Error 500, ga tau kenapa');
-        // $this->submitForm('Posting', [
-        //     'author' => 'Author1',
-        //     'gambar' => 'img.jpg',
-        //     'judul' => 'Test',
-        //     'konten' => 'lorem ipsum'
-        // ]);
+        $file = public_path('img.jpg');
+        $this->submitForm('Posting', [
+            'author' => 'Author1',
+            'gambar' => $file,
+            'judul' => 'Test Judul',
+            'konten' => 'Test test test test'
+        ]);
+
+        $this->seePageIs('/admin/berita');
+        $this->seeInDatabase('beritas', [
+            'judul' => 'Test Judul',
+            'author' => 'Author1',
+            'konten' => 'Test test test test'
+        ]);
     }
 
     public function testDelete()
@@ -60,14 +67,16 @@ class BeritaTest extends TestCase
 
         $berita = Berita::all();
 
-        if (count($berita) == 0)
+        if (count($berita) == 0) {
             $this->markTestSkipped('No data to delete');
+        } else {
+            $latestIndex = count($berita) - 1;
+            $id = $berita[$latestIndex]->id;
 
-        $latestIndex = count($berita) - 1;
-
-        $this->submitForm('hapus-berita', [
-            'deleted_id' => $berita[$latestIndex]->id
-        ]);
-        $this->seePageIs('/admin/berita');
+            $this->submitForm('hapus-berita', [
+                'deleted_id' => $id
+            ]);
+            $this->seePageIs('/admin/berita');
+        }
     }
 }

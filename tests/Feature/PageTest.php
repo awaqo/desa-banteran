@@ -43,20 +43,21 @@ class PageTest extends TestCase
         $berita = Berita::all();
         $this->visit('/informasi');
 
-        foreach ($berita as $data) {
-            $this->see($data->judul);
-            $this->see($data->author);
-        }
-
-        if (count($berita) == 0)
+        if (count($berita) == 0) {
             $this->markTestSkipped('No data to view');
+        } else {
+            foreach ($berita as $data) {
+                $this->see($data->judul);
+                $this->see($data->author);
+            }
 
-        $this->click('Selengkapnya');
-        $latestIndex = count($berita) - 1;
-        $this->seePageIs('/informasi/berita/' . $berita[$latestIndex]->slug);
-        $this->see($berita[$latestIndex]->judul);
-        $this->see($berita[$latestIndex]->author);
-        $this->see($berita[$latestIndex]->isi);
+            $this->click('Selengkapnya');
+            $latestIndex = count($berita) - 1;
+            $this->seePageIs('/informasi/berita/' . $berita[$latestIndex]->slug);
+            $this->see($berita[$latestIndex]->judul);
+            $this->see($berita[$latestIndex]->author);
+            $this->see($berita[$latestIndex]->isi);
+        }
     }
 
     public function testProfilePage()

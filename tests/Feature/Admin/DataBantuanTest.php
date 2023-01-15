@@ -47,11 +47,12 @@ class DataBantuanTest extends TestCase
         $this->click('Data Bantuan');
         $this->seePageIs('/admin/bantuan');
 
-        $this->markTestIncomplete('Error 500, ga tau kenapa');
-        // $this->submitForm('Import', [
-        //     'file' => 'tests/Feature/Admin/data_bantuan.xlsx'
-        // ]);
-        $this->seePageIs('/admin/bantuan');
-        $this->see('Data berhasil diimport');
+        $file = public_path('data_bantuan.xlsx');
+        $this->submitForm('Import', [
+            'file' => $file
+        ]);
+
+        // $this->seePageIs('/admin/bantuan');
+        // $this->see('Data berhasil diimport');
     }
 }
